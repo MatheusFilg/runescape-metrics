@@ -6,6 +6,7 @@ import {
 	Scroll,
 } from 'lucide-react'
 import { useQueryState } from 'nuqs'
+import { Link } from 'react-router'
 import {
 	Sidebar,
 	SidebarContent,
@@ -20,27 +21,27 @@ const routes = [
 	{
 		title: 'Summary',
 		icon: Home,
-		url: '#',
+		url: '/summary',
 	},
 	{
 		title: 'Activity',
 		icon: Scroll,
-		url: '#',
+		url: '/activity',
 	},
 	{
 		title: 'Xp',
 		icon: ChartLine,
-		url: '#',
+		url: '/xp',
 	},
 	{
 		title: 'Levels',
 		icon: ChartNoAxesCombined,
-		url: '#',
+		url: '/levels',
 	},
 	{
 		title: 'Quests',
 		icon: BookMarked,
-		url: '#',
+		url: '/quests',
 	},
 ]
 
@@ -60,10 +61,15 @@ export function AppSidebar() {
 					{routes.map(item => (
 						<SidebarMenuItem key={item.title}>
 							<SidebarMenuButton asChild>
-								<a href={item.url}>
+								<Link
+									to={{
+										pathname: item.url,
+										search: searchTerm ? `?name=${searchTerm}` : '',
+									}}
+								>
 									<item.icon />
 									{item.title}
-								</a>
+								</Link>
 							</SidebarMenuButton>
 						</SidebarMenuItem>
 					))}

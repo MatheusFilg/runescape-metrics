@@ -1,10 +1,14 @@
 import { Search } from 'lucide-react'
 import { useQueryState } from 'nuqs'
 import { type FormEvent, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
 
 export function InputSearch() {
+	const location = useLocation()
+	const navigate = useNavigate()
+
 	const [inputValue, setInputValue] = useState('')
 	const [searchTerm, setSearchTerm] = useQueryState('name', {
 		throttleMs: 300,
@@ -15,6 +19,9 @@ export function InputSearch() {
 		e.preventDefault()
 		setSearchTerm(inputValue || null)
 		setInputValue('')
+		if (location.pathname === '/home') {
+			navigate('/summary')
+		}
 	}
 
 	return (
