@@ -1,22 +1,22 @@
-import { createBrowserRouter } from "react-router";
-import { Activity } from "./app/activity";
-import { Layout } from "./app/layout";
-import { Summary } from "./app/summary";
+import { createBrowserRouter } from 'react-router'
+import { Activity } from './app/activity'
+import { Layout } from './app/layout'
+import { Summary } from './app/summary'
 
 export const router = createBrowserRouter([
 	{
-		path: "/",
+		path: '/',
 		element: <Layout />,
 		children: [
 			{
 				index: true,
-				path: "/",
+				path: '/',
 				element: <Summary />,
 			},
 			{
-				path: "/activity",
+				path: '/activity',
 				element: <Activity />,
 			},
 		],
 	},
-]);
+])

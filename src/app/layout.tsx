@@ -1,11 +1,16 @@
-import { Outlet } from "react-router";
-import { Header } from "@/components/header";
+import { Outlet } from 'react-router'
+import { AppSidebar } from '@/components/app-sidebar'
+import { Header } from '@/components/header'
+import { SidebarProvider } from '@/components/ui/sidebar'
 
 export function Layout() {
 	return (
-		<div className="flex flex-col gap-10">
-			<Header />
-			<Outlet />
-		</div>
-	);
+		<SidebarProvider>
+			<AppSidebar />
+			<main className="flex w-full flex-col">
+				<Header />
+				<Outlet />
+			</main>
+		</SidebarProvider>
+	)
 }

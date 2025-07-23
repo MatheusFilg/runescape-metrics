@@ -1,14 +1,40 @@
-import { Search } from "lucide-react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
+import { Search } from 'lucide-react'
+import { useQueryState } from 'nuqs'
+import { type FormEvent, useState } from 'react'
+import { Button } from './ui/button'
+import { Input } from './ui/input'
 
 export function InputSearch() {
+	const [inputValue, setInputValue] = useState('')
+	const [searchTerm, setSearchTerm] = useQueryState('name', {
+		throttleMs: 300,
+		defaultValue: '',
+	})
+
+	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault()
+		setSearchTerm(inputValue || null)
+		setInputValue('')
+	}
+
 	return (
-		<div className="w-fit flex flex-row items-center gap-0.5">
-			<Button type="submit" variant="outline" className="size-8">
+		<form
+			onSubmit={handleSubmit}
+			className="w-fit flex flex-row items-center gap-0.5"
+		>
+			<Button
+				type="submit"
+				variant="outline"
+				className="size-9"
+				disabled={!inputValue.trim()}
+			>
 				<Search />
 			</Button>
-			<Input className="w-44 h-8" placeholder="Search for a Player" />
-		</div>
-	);
+			<Input
+				placeholder="Search for a Player"
+				value={inputValue}
+				onChange={e => setInputValue(e.target.value)}
+			/>
+		</form>
+	)
 }
