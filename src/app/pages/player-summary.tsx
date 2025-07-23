@@ -1,7 +1,7 @@
 import { useQueryState } from 'nuqs'
 import { usePlayerSearch } from '@/hooks/player-search'
 
-export function Summary() {
+export function PlayerSummary() {
 	const [searchTerm] = useQueryState('name')
 	const { data, isLoading, isError } = usePlayerSearch(searchTerm || '')
 
