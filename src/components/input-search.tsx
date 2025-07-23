@@ -11,7 +11,6 @@ export function InputSearch() {
 
 	const [inputValue, setInputValue] = useState('')
 	const [searchTerm, setSearchTerm] = useQueryState('name', {
-		throttleMs: 300,
 		defaultValue: '',
 	})
 
@@ -27,7 +26,7 @@ export function InputSearch() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="w-fit flex flex-row items-center gap-0.5"
+			className="w-fit flex flex-row items-center gap-1"
 		>
 			<Button
 				type="submit"
