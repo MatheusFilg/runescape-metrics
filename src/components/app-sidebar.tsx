@@ -66,6 +66,9 @@ export function AppSidebar() {
 										pathname: item.url,
 										search: searchTerm ? `?name=${searchTerm}` : '',
 									}}
+									className={
+										!searchTerm ? 'pointer-events-none opacity-50' : ''
+									}
 								>
 									<item.icon />
 									{item.title}

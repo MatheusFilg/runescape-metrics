@@ -10,7 +10,7 @@ export function Header() {
 		<div className="w-full flex flex-row justify-between items-center border-b border-2 h-fit px-4 py-2">
 			<SidebarTrigger />
 			<div className="flex flex-row gap-4">
-				<div className={`${location.pathname === '/' ? 'hidden' : 'flex'}`}>
+				<div className={`${location.pathname === '/home' ? 'hidden' : 'flex'}`}>
 					<InputSearch />
 				</div>
 				<ThemeToggle />
