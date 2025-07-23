@@ -7,7 +7,7 @@ export function Layout() {
 	return (
 		<SidebarProvider>
 			<AppSidebar />
-			<main className="flex w-full flex-col">
+			<main className="flex w-full h-screen flex-col">
 				<Header />
 				<Outlet />
 			</main>
