@@ -18,7 +18,7 @@ export function InputSearch() {
 		e.preventDefault()
 		setSearchTerm(inputValue || null)
 		setInputValue('')
-		if (location.pathname === '/home') {
+		if (location.pathname === '/') {
 			navigate('/summary')
 		}
 	}
