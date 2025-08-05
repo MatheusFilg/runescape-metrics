@@ -1,7 +1,17 @@
+import dayjs from 'dayjs'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import { useQueryState } from 'nuqs'
 import { Link } from 'react-router'
 import { usePlayerSearch } from '@/hooks/player-search'
 import { skillReferences } from '@/utils/skills'
+
+dayjs.extend(customParseFormat)
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(relativeTime)
 
 export function PlayerSummary() {
 	const [searchTerm] = useQueryState('name')
@@ -21,26 +31,46 @@ export function PlayerSummary() {
 		})
 		.sort((a: any, b: any) => a.order - b.order)
 
+	const formatDateFromNow = (dateString: string): string => {
+		try {
+			const apiTimezone = 'UTC'
+			const dateInOriginalTimezone = dayjs.tz(
+				dateString,
+				'DD-MMM-YYYY HH:mm',
+				apiTimezone
+			)
+
+			if (!dateInOriginalTimezone.isValid()) {
+				console.error('Data inválida na conversão inicial:', dateString)
+				return 'Data inválida'
+			}
+
+			const userTimezone = dayjs.tz.guess()
+			const dateInUserTimezone = dateInOriginalTimezone.tz(userTimezone)
+
+			return dateInUserTimezone.fromNow()
+		} catch (error) {
+			console.error('Erro ao formatar data:', error)
+			return 'Data inválida'
+		}
+	}
+
 	return (
-		<div className="grid w-full h-screen grid-cols-3 p-2 gap-2">
+		<div className="grid w-full h-screen grid-cols-3 p-2 gap-6">
 			<div className="flex flex-col border bg-primary-foreground">
 				<h1 className="uppercase text-2xl border-b p-2">Skills</h1>
 				<div className="flex flex-row w-full justify-between border-b items-center align-middle px-2 py-1">
+					<h2>Combat Level</h2>
+					<span className="italic">{data?.combatlevel}</span>
+				</div>
+				<div className="flex flex-row w-full justify-between border-b items-center align-middle px-2 py-1">
 					<h2>Total Level</h2>
-					<span className="text-muted-foreground italic">
-						{data?.totalskill}
-					</span>
+					<span className="italic">{data?.totalskill}</span>
 				</div>
 				<div className="flex flex-row w-full justify-between border-b items-center align-middle px-2 py-1">
 					<h2>Total Xp</h2>
-					<span className="text-muted-foreground italic">
+					<span className="italic">
 						{new Intl.NumberFormat('pt-BR').format(data?.totalxp)}
-					</span>
-				</div>
-				<div className="flex flex-row w-full justify-between border-b items-center align-middle px-2 py-1">
-					<h2>Combat Level</h2>
-					<span className="text-muted-foreground italic">
-						{data?.combatlevel}
 					</span>
 				</div>
 
@@ -75,7 +105,38 @@ export function PlayerSummary() {
 				</div>
 			</div>
 
-			<div className="">Activity</div>
+			<div className="flex flex-col border bg-primary-foreground">
+				<h1 className="uppercase text-2xl border-b p-2">Activity </h1>
+
+				<div className="flex flex-col gap-2 p-2 h-[83dvh] overflow-scroll">
+					{data?.activities.map((item: any) => (
+						<div
+							className="gap-2 flex flex-row p-2 items-center bg-accent rounded"
+							key={item.id}
+						>
+							<img src={item.activityUrl} alt="" className="size-8" />
+							<div className="flex flex-col gap-1">
+								<span>{item.text}</span>
+								<span className="text-sm text-muted-foreground italic">
+									{formatDateFromNow(item.date)}
+								</span>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<div className="p-2 border-t">
+					<Link
+						to={{
+							pathname: '/activity',
+							search: searchTerm ? `?name=${searchTerm}` : '',
+						}}
+						className="flex underline justify-end"
+					>
+						See All Activities
+					</Link>
+				</div>
+			</div>
 			<div className="">Quests</div>
 			{isLoading && <p>Loading...</p>}
 			{isError && <p>Error fetching data</p>}
