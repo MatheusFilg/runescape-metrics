@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { getPlayerDetails } from '@/services/get-player-details'
+import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
 export const usePlayerSearch = (searchTerm: string) => {
-	return useQuery({
+	return useQuery<PlayerSummaryResponse>({
 		queryKey: ['playerSearch', searchTerm],
 		queryFn: () => getPlayerDetails({ name: searchTerm }),
 		enabled: !!searchTerm.trim(),
