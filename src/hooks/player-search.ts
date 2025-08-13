@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import type { PlayerService } from '@/services/get-player-details'
+import type { IPlayerService } from '@/services/get-player-details'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
 export const usePlayerSearch = (
 	searchTerm: string,
-	playerService: PlayerService
+	playerService: IPlayerService
 ) => {
 	return useQuery<PlayerSummaryResponse>({
 		queryKey: ['playerSearch', searchTerm],
