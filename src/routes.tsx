@@ -5,7 +5,7 @@ import { PlayerActivity } from './app/pages/player-activity'
 import { PlayerExperience } from './app/pages/player-experience'
 import { PlayerLevels } from './app/pages/player-levels'
 import { PlayerQuests } from './app/pages/player-quests'
-import { PlayerSummary } from './app/pages/player-summary'
+import { PlayerSummary } from './app/pages/player-summary/player-summary-view-model'
 
 export const router = createBrowserRouter([
 	{

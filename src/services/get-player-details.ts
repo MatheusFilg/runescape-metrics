@@ -1,17 +1,24 @@
 import { api } from '@/lib/axios'
+import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
-interface getPlayerDetailsProps {
-	name: string
-	activities?: number
+export interface IPlayerService {
+	getPlayerSummary: (params: {
+		name: string
+		activities?: number
+	}) => Promise<PlayerSummaryResponse>
 }
 
-export async function getPlayerDetails({
-	name,
-	activities = 20,
-}: getPlayerDetailsProps) {
-	const response = await api.get('/player-details', {
-		params: { name, activities },
-	})
-
-	return response.data
+export class PlayerService implements IPlayerService {
+	async getPlayerSummary({
+		name,
+		activities = 20,
+	}: {
+		name: string
+		activities?: number
+	}) {
+		const response = await api.get('/player-details', {
+			params: { name, activities },
+		})
+		return response.data
+	}
 }

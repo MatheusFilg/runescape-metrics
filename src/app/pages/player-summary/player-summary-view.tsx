@@ -1,28 +1,13 @@
-import { useQueryState } from 'nuqs'
 import { Link } from 'react-router'
 import { ChartPieDonut } from '@/components/chart-pie-donut'
 import { Skeleton } from '@/components/ui/skeleton'
-import { usePlayerSearch } from '@/hooks/player-search'
 import { formatDateFromNow } from '@/utils/format-date-to-now'
-import { skillReferences } from '@/utils/skills'
+import type { usePlayerSummaryModel } from './player-summary-model'
 
-export function PlayerSummary() {
-	const [searchTerm] = useQueryState('name')
-	const { data: playerDetails, isLoading } = usePlayerSearch(searchTerm || '')
+type PlayerSummaryViewProps = ReturnType<typeof usePlayerSummaryModel>
 
-	const skillValues = playerDetails?.skillvalues
-		.map((item: any) => {
-			const skillValuesComplete = skillReferences.find(
-				(ref: any) => ref.id === item.id
-			)
-			return {
-				...item,
-				name: skillValuesComplete?.name,
-				url: skillValuesComplete?.url,
-				order: skillValuesComplete?.order,
-			}
-		})
-		.sort((a: any, b: any) => a.order - b.order)
+export const PlayerSummaryView = (props: PlayerSummaryViewProps) => {
+	const { isLoading, playerDetails, searchTerm, skillValues } = props
 
 	return (
 		<div className="grid w-full h-screen grid-cols-3 p-2 gap-6 overflow-hidden">
