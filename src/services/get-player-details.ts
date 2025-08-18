@@ -1,6 +1,11 @@
 import { HttpMethod, type IHttpClient } from '@/infra/http-client-player'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
+export interface GetPlayerSummaryParams {
+	name: string
+	activities?: number
+}
+
 export interface IPlayerService {
 	getPlayerSummary: (params: {
 		name: string
@@ -11,13 +16,8 @@ export interface IPlayerService {
 export class PlayerService implements IPlayerService {
 	constructor(private readonly httpClient: IHttpClient) {}
 
-	async getPlayerSummary({
-		name,
-		activities = 20,
-	}: {
-		name: string
-		activities?: number
-	}) {
+	async getPlayerSummary(params: GetPlayerSummaryParams) {
+		const { name, activities = 20 } = params
 		const responsePlayerSummary =
 			await this.httpClient.sendRequest<PlayerSummaryResponse>({
 				method: HttpMethod.GET,
