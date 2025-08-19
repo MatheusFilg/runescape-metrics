@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { HttpMethod } from '@/infra/http-client-player'
-import { httpClientMock } from '@/mocks/http-client-mock'
+import {
+	httpClientMock,
+	httpClientMockWithFailure,
+} from '@/mocks/http-client-mock'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 import { PlayerService } from './get-player-details'
 
@@ -64,6 +67,18 @@ describe('PlayerService', () => {
 			expect(result1.name).toBe('Ageonn')
 			expect(result2.name).toBe('Maggyxz')
 			expect(result1).not.toEqual(result2)
+		})
+
+		it('should throw a error if the request fails', async () => {
+			const mockError = new Error('Api failure: Internal server error')
+
+			const clientMock = httpClientMockWithFailure(mockError)
+
+			const service = new PlayerService(clientMock)
+
+			await expect(
+				service.getPlayerSummary({ name: 'Inexistent' })
+			).rejects.toThrow('Api failure: Internal server error')
 		})
 	})
 })

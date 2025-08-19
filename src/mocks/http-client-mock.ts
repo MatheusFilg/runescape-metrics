@@ -5,11 +5,11 @@ export const httpClientMock = (
 	responseBuilder: (request: HttpRequest<any>) => any
 ): IHttpClient => ({
 	sendRequest: vi.fn(async request => {
-		try {
-			const response = responseBuilder(request)
-			return response
-		} catch (error) {
-			throw new Error(`Mock error ${error}`)
-		}
+		const response = responseBuilder(request)
+		return response
 	}),
+})
+
+export const httpClientMockWithFailure = (error: Error): IHttpClient => ({
+	sendRequest: vi.fn().mockRejectedValue(new Error(`Network error: ${error}`)),
 })
