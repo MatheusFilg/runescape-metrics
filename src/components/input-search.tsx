@@ -10,11 +10,22 @@ export function InputSearch() {
 	const navigate = useNavigate()
 
 	const [inputValue, setInputValue] = useState('')
+	const [error, setError] = useState('')
 	const [searchTerm, setSearchTerm] = useQueryState('name', {
 		defaultValue: '',
 	})
 
 	const handleSubmit = (e: FormEvent) => {
+		e.preventDefault()
+
+		const onlyNumbersRegex = /^\d+$/
+		if (onlyNumbersRegex.test(inputValue.trim())) {
+			setError('Only numbers are not allowed')
+			return
+		}
+
+		if (error) setError('')
+
 		e.preventDefault()
 		setSearchTerm(inputValue || null)
 		setInputValue('')
@@ -24,23 +35,27 @@ export function InputSearch() {
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			className="w-fit flex flex-row items-center gap-1"
-		>
-			<Button
-				type="submit"
-				variant="outline"
-				className="size-9"
-				disabled={!inputValue.trim()}
+		<div className="flex flex-col">
+			<form
+				onSubmit={handleSubmit}
+				className="w-fit flex flex-row items-center gap-1"
 			>
-				<Search />
-			</Button>
-			<Input
-				placeholder="Search for a Player"
-				value={inputValue}
-				onChange={e => setInputValue(e.target.value)}
-			/>
-		</form>
+				<Button
+					type="submit"
+					variant="outline"
+					className="size-9"
+					disabled={!inputValue.trim()}
+				>
+					<Search />
+				</Button>
+				<Input
+					type="text"
+					placeholder="Search for a Player"
+					value={inputValue}
+					onChange={e => setInputValue(e.target.value)}
+				/>
+			</form>
+			{error && <p className="text-destructive text-sm ml-10">{error}</p>}
+		</div>
 	)
 }
