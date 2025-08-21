@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router'
 import { Layout } from './app/layout'
-import { Home } from './app/pages/home'
+import { Home } from './app/pages/home/home'
 import { PlayerActivity } from './app/pages/player-activity'
 import { PlayerExperience } from './app/pages/player-experience'
 import { PlayerLevels } from './app/pages/player-levels'

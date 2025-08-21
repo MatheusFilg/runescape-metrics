@@ -13,6 +13,8 @@ export default defineConfig({
 			provider: 'v8',
 			reporter: ['text', 'json', 'html'],
 		},
+		setupFiles: ['src/test/setup.ts'],
+		globals: true,
 	},
 	resolve: {
 		alias: {

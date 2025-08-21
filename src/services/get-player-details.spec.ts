@@ -3,7 +3,7 @@ import { HttpMethod } from '@/infra/http-client-player'
 import {
 	httpClientMock,
 	httpClientMockWithFailure,
-} from '@/mocks/http-client-mock'
+} from '@/test/mocks/http-client-mock'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 import { PlayerService } from './get-player-details'
 

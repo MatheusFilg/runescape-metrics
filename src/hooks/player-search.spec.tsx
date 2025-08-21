@@ -1,8 +1,8 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { renderHook, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { httpClientMock } from '@/mocks/http-client-mock'
 import { PlayerService } from '@/services/get-player-details'
+import { httpClientMock } from '@/test/mocks/http-client-mock'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 import { usePlayerSearch } from './player-search'
 

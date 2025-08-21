@@ -38,11 +38,13 @@ export function InputSearch() {
 		<div className="flex flex-col">
 			<form
 				onSubmit={handleSubmit}
+				data-testid="player-form"
 				className="w-fit flex flex-row items-center gap-1"
 			>
 				<Button
 					type="submit"
 					variant="outline"
+					data-testid="submit-button"
 					className="size-9"
 					disabled={!inputValue.trim()}
 				>
@@ -51,11 +53,19 @@ export function InputSearch() {
 				<Input
 					type="text"
 					placeholder="Search for a Player"
+					data-testid="search-input"
 					value={inputValue}
 					onChange={e => setInputValue(e.target.value)}
 				/>
 			</form>
-			{error && <p className="text-destructive text-sm ml-10">{error}</p>}
+			{error && (
+				<p
+					className="text-destructive text-sm ml-10"
+					data-testid="error-message"
+				>
+					{error}
+				</p>
+			)}
 		</div>
 	)
 }
