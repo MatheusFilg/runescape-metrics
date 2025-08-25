@@ -57,7 +57,10 @@ export function AppSidebar() {
 						{searchTerm !== null ? searchTerm : 'Search for a player'}
 					</h1>
 				</div>
-				<SidebarGroupContent className="flex flex-col gap-4">
+				<SidebarGroupContent
+					className="flex flex-col gap-4"
+					data-testid="sidebar-navigation"
+				>
 					{routes.map(item => (
 						<SidebarMenuItem key={item.title}>
 							<SidebarMenuButton asChild>
