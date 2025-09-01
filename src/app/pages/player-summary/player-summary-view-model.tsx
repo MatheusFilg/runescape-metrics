@@ -7,6 +7,6 @@ export function PlayerSummary() {
 	const httpClient = HttpClient.create()
 	const playerService = new PlayerService(httpClient)
 
-	const methods = usePlayerSummaryModel({ playerService })
+	const methods = usePlayerSummaryModel(playerService)
 	return <PlayerSummaryView {...methods} />
 }
