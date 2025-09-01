@@ -11,11 +11,11 @@ export interface PlayerSummaryResponse {
 	rank: string
 	melee: number
 	loggedIn: string
-	skillvalues: Skillvalue[]
+	skillvalues: SkillValue[]
 	activities: Activity[]
 }
 
-interface Skillvalue {
+export interface SkillValue {
 	level: number
 	xp: number
 	rank: number
