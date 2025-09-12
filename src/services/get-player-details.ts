@@ -1,5 +1,5 @@
+import type { PlayerSummaryResponse } from '@/app/pages/player-summary/types/player-summary-response'
 import { HttpMethod, type IHttpClient } from '@/infra/http-client-player'
-import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
 export interface GetPlayerSummaryParams {
 	name: string

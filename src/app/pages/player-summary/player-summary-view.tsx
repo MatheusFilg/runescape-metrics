@@ -9,7 +9,7 @@ export const PlayerSummaryView = (props: PlayerSummaryViewProps) => {
 	const { isLoading, playerDetails, searchTerm, skillValues } = props
 
 	return (
-		<div className="grid w-full h-screen grid-cols-3 p-2 gap-6 overflow-hidden">
+		<div className="grid grid-cols-3 gap-6 overflow-hidden">
 			<SkillsContainer
 				isLoading={isLoading}
 				playerDetails={playerDetails}

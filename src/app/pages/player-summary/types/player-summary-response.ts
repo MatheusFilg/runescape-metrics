@@ -23,6 +23,7 @@ export interface SkillValue {
 }
 
 export interface Activity {
+	id: string
 	date: string
 	details: string
 	text: string

@@ -9,7 +9,9 @@ export function Layout() {
 			<AppSidebar />
 			<main className="flex w-full h-screen flex-col">
 				<Header />
-				<Outlet />
+				<div className="w-full max-h-[94dvh] p-2">
+					<Outlet />
+				</div>
 			</main>
 		</SidebarProvider>
 	)
