@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import { Skeleton } from '@/components/ui/skeleton'
-import type { ContainerProps } from '../types/player-summary-container'
+import type { ContainerProps } from './player-summary-container'
 
 export function SkillsContainer({
 	isLoading,

@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import { Skeleton } from '@/components/ui/skeleton'
 import { formatDateFromNow } from '@/utils/format-date-to-now'
-import type { ContainerProps } from '../types/player-summary-container'
+import type { ContainerProps } from './player-summary-container'
 
 export function ActivitiesContainer({
 	isLoading,

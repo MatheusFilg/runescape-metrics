@@ -11,7 +11,7 @@ export function InputSearch() {
 
 	const [inputValue, setInputValue] = useState('')
 	const [error, setError] = useState('')
-	const [searchTerm, setSearchTerm] = useQueryState('name', {
+	const [_, setSearchTerm] = useQueryState('name', {
 		defaultValue: '',
 	})
 

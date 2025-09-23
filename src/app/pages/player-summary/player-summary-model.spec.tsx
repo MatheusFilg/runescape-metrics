@@ -6,8 +6,8 @@ import {
 	successfulPlayerSummaryModel,
 } from '@/test/mocks/player-summary-service-mock'
 import { renderQueryClient } from '@/test/render-query-client'
+import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 import { usePlayerSummaryModel } from './player-summary-model'
-import type { PlayerSummaryResponse } from './types/player-summary-response'
 
 vi.mock('nuqs', () => ({
 	useQueryState: vi.fn().mockReturnValue(['Ageonn', vi.fn()]),

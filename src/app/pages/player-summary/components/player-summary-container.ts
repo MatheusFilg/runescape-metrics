@@ -1,7 +1,7 @@
 import type {
 	PlayerSummaryResponse,
 	SkillValue,
-} from './player-summary-response'
+} from '@/types/player-summary-response'
 
 export interface ContainerProps {
 	isLoading: boolean

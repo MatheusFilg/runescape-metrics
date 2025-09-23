@@ -1,6 +1,6 @@
 import { HttpClient } from '@/infra/http-client'
 import { PlayerService } from '@/services/get-player-details'
-import { usePlayerActivityModel } from './palyer-activity-model'
+import { usePlayerActivityModel } from './player-activity-model'
 import { PlayerActivityView } from './player-activity-view'
 
 export function PlayerActivity() {
