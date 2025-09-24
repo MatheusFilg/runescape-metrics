@@ -66,5 +66,6 @@ export const usePlayerActivityModel = (playerService: IPlayerService) => {
 		activityFilter,
 		setActivityFilter,
 		filteredActivities,
+		playerActivitiesDetails,
 	}
 }

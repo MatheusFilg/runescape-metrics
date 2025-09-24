@@ -4,7 +4,7 @@ import { mockData } from '@/test/mocks/mock-schema-player-summary'
 import {
 	failedPlayerSummaryModel,
 	successfulPlayerSummaryModel,
-} from '@/test/mocks/player-summary-service-mock'
+} from '@/test/mocks/services/player-summary-service-mock'
 import { renderQueryClient } from '@/test/render-query-client'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 import { usePlayerSummaryModel } from './player-summary-model'

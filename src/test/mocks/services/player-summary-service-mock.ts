@@ -1,5 +1,5 @@
 import type { IPlayerService } from '@/services/get-player-details'
-import { mockData } from './mock-schema-player-summary'
+import { mockData } from '../mock-schema-player-summary'
 
 export const successfulPlayerSummaryModel: IPlayerService = {
 	getPlayerSummary: () => Promise.resolve(mockData),

@@ -22,5 +22,21 @@ export const mockData: PlayerSummaryResponse = {
 			activityType: 'bossKills',
 			activityUrl: 'https://runescape.wiki/images/Combat_icon_large.png',
 		},
+		{
+			id: '718992',
+			date: '24-Sep-2025 13:25',
+			details: "I have solved one of Gielinor's greatest mysteries.",
+			text: 'Solved an archaeological mystery.',
+			activityType: 'other',
+			activityUrl: 'https://runescape.wiki/images/Default_achievement_icon.png',
+		},
+		{
+			id: '606CCD',
+			date: '24-Sep-2025 13:25',
+			details: 'I levelled my Archaeology skill, I am now level 84.',
+			text: 'Levelled up Archaeology.',
+			activityType: 'leveling',
+			activityUrl: 'https://runescape.wiki/images/Statistics.png',
+		},
 	],
 }
