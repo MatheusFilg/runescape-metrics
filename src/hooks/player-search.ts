@@ -7,7 +7,7 @@ export const usePlayerSearch = (
 	playerService: IPlayerService
 ) => {
 	return useQuery<PlayerSummaryResponse>({
-		queryKey: ['playerSearch', searchTerm],
+		queryKey: ['player-search', searchTerm],
 		queryFn: () => playerService.getPlayerSummary({ name: searchTerm }),
 		enabled: !!searchTerm.trim(),
 	})
