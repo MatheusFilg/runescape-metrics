@@ -1,6 +1,3 @@
-import dayjs from 'dayjs'
-import { useQueryState } from 'nuqs'
-import { useMemo, useState } from 'react'
 import { ChartLineDefault } from '@/components/chart-line'
 import {
 	Select,
@@ -10,41 +7,13 @@ import {
 	SelectValue,
 } from '@/components/ui/select'
 import { Skeleton } from '@/components/ui/skeleton'
-import { usePlayerExperience } from '@/hooks/player-experience'
-import { HttpClient } from '@/infra/http-client'
-import { PlayerExperienceService } from '@/services/get-player-experience'
 import { skillReferences } from '@/utils/skills'
+import type { usePlayerExperienceModel } from './player-experience-model'
 
-export function PlayerExperience() {
-	const playerExperienceService = new PlayerExperienceService(
-		HttpClient.create()
-	)
+type PlayerExperienceViewProps = ReturnType<typeof usePlayerExperienceModel>
 
-	const [selectedSkillId, setSelectedSkillId] = useState<number>(-1)
-
-	const [playerName] = useQueryState('name')
-	const { data, isLoading } = usePlayerExperience(
-		playerName || '',
-		selectedSkillId,
-		playerExperienceService
-	)
-
-	const chartData = useMemo(() => {
-		if (!data?.monthlyXpGain) {
-			return []
-		}
-		const selectedSkillData = data?.monthlyXpGain.find(
-			skill => skill.skillId === selectedSkillId
-		)
-
-		if (!selectedSkillData?.monthData) {
-			return []
-		}
-		return selectedSkillData.monthData.map(month => ({
-			...month,
-			monthName: dayjs(month.timestamp).format('MMM'),
-		}))
-	}, [data, selectedSkillId])
+export function PlayerExperienceView(props: PlayerExperienceViewProps) {
+	const { setSelectedSkillId, selectedSkillId, isLoading, chartData } = props
 
 	return (
 		<div>
