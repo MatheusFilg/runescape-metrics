@@ -34,6 +34,7 @@ export const usePlayerExperienceModel = (
 	}, [data, selectedSkillId])
 
 	return {
+		data,
 		chartData,
 		isLoading,
 		selectedSkillId,
