@@ -24,13 +24,15 @@ export function SkillsContainer({
 			</div>
 
 			<div className="flex flex-row w-full border-b px-2 py-1">
-				{isLoading ? (
-					<Skeleton className="h-[16px] my-1 w-full rounded" />
-				) : (
+				{playerDetails !== undefined && isLoading ? (
 					<div className="flex flex-row w-full justify-between items-center align-middle">
 						<h2>Total Level</h2>
-						<span className="italic">{playerDetails?.totalskill}</span>
+						<span className="italic">
+							{new Intl.NumberFormat('pt-BR').format(playerDetails?.totalskill)}
+						</span>
 					</div>
+				) : (
+					<Skeleton className="h-[16px] my-1 w-full rounded" />
 				)}
 			</div>
 			<div className="flex flex-row w-full border-b px-2 py-1">

@@ -20,6 +20,8 @@ export interface SkillValue {
 	xp: number
 	rank: number
 	id: number
+	percentageProgress: string
+	xpToNextLevel: number
 }
 
 export interface Activity {

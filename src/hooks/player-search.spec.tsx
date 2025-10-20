@@ -19,7 +19,16 @@ const mockPlayerData: PlayerSummaryResponse = {
 	rank: '308,300',
 	melee: 34254979,
 	loggedIn: 'false',
-	skillvalues: [{ level: 90, xp: 53541049, rank: 389096, id: 3 }],
+	skillvalues: [
+		{
+			level: 90,
+			xp: 53541049,
+			rank: 389096,
+			id: 3,
+			percentageProgress: '35.01',
+			xpToNextLevel: 90248,
+		},
+	],
 	activities: [
 		{
 			date: '15-Aug-2025 13:30',
