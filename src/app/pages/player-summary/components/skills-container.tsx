@@ -24,7 +24,7 @@ export function SkillsContainer({
 			</div>
 
 			<div className="flex flex-row w-full border-b px-2 py-1">
-				{playerDetails !== undefined && isLoading ? (
+				{playerDetails !== undefined && !isLoading ? (
 					<div className="flex flex-row w-full justify-between items-center align-middle">
 						<h2>Total Level</h2>
 						<span className="italic">
