@@ -9,6 +9,7 @@ import {
 	TableHeader,
 	TableRow,
 } from '@/components/ui/table'
+import { CardInfoLevels } from './components/card-info-levels'
 import type { usePlayerLevelsModel } from './player-levels-model'
 
 type PlayerLevelsViewProps = ReturnType<typeof usePlayerLevelsModel>
@@ -26,32 +27,28 @@ export function PlayerLevelsView(props: PlayerLevelsViewProps) {
 				<div className="flex flex-col p-2 gap-4 h-[85dvh]">
 					<div className="flex flex-row justify-between gap-8">
 						{data !== undefined && !isLoading ? (
-							<div className="bg-sidebar-accent place-items-center justify-center flex flex-col gap-2 px-4 py-2 rounded w-full h-24">
-								<span className="text-sm capitalize">combat level</span>
-								<h1 className="text-4xl font-bold">{data?.combatlevel}</h1>
-							</div>
+							<CardInfoLevels
+								text="combat level"
+								info={new Intl.NumberFormat('pt-BR').format(data.combatlevel)}
+							/>
 						) : (
 							<Skeleton className="h-24 my-1 w-full rounded" />
 						)}
 
 						{data !== undefined && !isLoading ? (
-							<div className="bg-sidebar-accent place-items-center justify-center flex flex-col gap-2 px-4 py-2 rounded w-full h-24">
-								<span className="text-sm capitalize">total level</span>
-								<h1 className="text-4xl font-bold">
-									{new Intl.NumberFormat('pt-BR').format(data?.totalskill)}
-								</h1>
-							</div>
+							<CardInfoLevels
+								text="total level"
+								info={new Intl.NumberFormat('pt-BR').format(data.totalskill)}
+							/>
 						) : (
 							<Skeleton className="h-24 my-1 w-full rounded" />
 						)}
 
 						{data !== undefined && !isLoading ? (
-							<div className="bg-sidebar-accent place-items-center justify-center flex flex-col gap-2 px-4 py-2 rounded w-full h-24">
-								<span className="text-sm capitalize">total xp</span>
-								<h1 className="text-4xl font-bold">
-									{new Intl.NumberFormat('pt-BR').format(data?.totalxp)}
-								</h1>
-							</div>
+							<CardInfoLevels
+								text="total xp"
+								info={new Intl.NumberFormat('pt-BR').format(data.totalxp)}
+							/>
 						) : (
 							<Skeleton className="h-24 my-1 w-full rounded" />
 						)}
