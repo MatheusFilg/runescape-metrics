@@ -46,6 +46,7 @@ export const usePlayerLevelsModel = (playerLevelService: IPlayerService) => {
 				id: 'icon',
 				cell: info => <img src={info.getValue()} alt="skill icon" />,
 				header: () => <span />,
+				enableSorting: false,
 			}),
 			columnHelper.accessor('name', {
 				id: 'skillName',
@@ -54,7 +55,7 @@ export const usePlayerLevelsModel = (playerLevelService: IPlayerService) => {
 				enableSorting: true,
 			}),
 			columnHelper.accessor('level', {
-				id: 'lastName',
+				id: 'level',
 				cell: info => info.getValue(),
 				header: () => <span>Level</span>,
 				enableSorting: true,
@@ -68,22 +69,26 @@ export const usePlayerLevelsModel = (playerLevelService: IPlayerService) => {
 					</div>
 				),
 				header: () => <span className="px-4">Progress</span>,
+				enableSorting: true,
 			}),
 
 			columnHelper.accessor('xpToNextLevel', {
 				id: 'xpToNextLevel',
 				cell: info => new Intl.NumberFormat('pt-BR').format(info.getValue()),
 				header: () => <span>Xp Left</span>,
+				enableSorting: true,
 			}),
 			columnHelper.accessor('xp', {
 				id: 'xp',
 				cell: info => new Intl.NumberFormat('pt-BR').format(info.getValue()),
 				header: () => <span>Total Xp</span>,
+				enableSorting: true,
 			}),
 			columnHelper.accessor('rank', {
 				id: 'rank',
 				cell: info => new Intl.NumberFormat('pt-BR').format(info.getValue()),
 				header: () => <span>Rank</span>,
+				enableSorting: true,
 			}),
 		],
 		[columnHelper]
@@ -103,6 +108,7 @@ export const usePlayerLevelsModel = (playerLevelService: IPlayerService) => {
 	return {
 		data,
 		table,
+		skillData,
 		isLoading,
 	}
 }

@@ -1,5 +1,5 @@
 import { flexRender } from '@tanstack/react-table'
-import { ArrowDownWideNarrow, ArrowUpNarrowWide } from 'lucide-react'
+import { ArrowDownNarrowWide, ArrowUpWideNarrow } from 'lucide-react'
 import { Skeleton } from '@/components/ui/skeleton'
 import {
 	Table,
@@ -76,8 +76,8 @@ export function PlayerLevelsView(props: PlayerLevelsViewProps) {
 															header.getContext()
 														)}
 												{{
-													asc: <ArrowUpNarrowWide />,
-													desc: <ArrowDownWideNarrow />,
+													asc: <ArrowDownNarrowWide />,
+													desc: <ArrowUpWideNarrow />,
 												}[header.column.getIsSorted() as string] ?? null}
 											</div>
 										</TableHead>
