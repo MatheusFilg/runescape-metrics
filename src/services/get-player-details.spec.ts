@@ -20,7 +20,16 @@ const mockPlayerData = (name: string): PlayerSummaryResponse => ({
 	rank: '308,300',
 	melee: 34254979,
 	loggedIn: 'false',
-	skillvalues: [{ level: 90, xp: 53541049, rank: 389096, id: 3 }],
+	skillvalues: [
+		{
+			level: 90,
+			xp: 53541049,
+			rank: 389096,
+			id: 3,
+			percentageProgress: '55%',
+			xpToNextLevel: 600000,
+		},
+	],
 	activities: [
 		{
 			date: '15-Aug-2025 13:30',
@@ -32,7 +41,7 @@ const mockPlayerData = (name: string): PlayerSummaryResponse => ({
 	],
 })
 
-describe('PlayerService', () => {
+describe('Player Summary Service', () => {
 	describe('getPlayerSummary', () => {
 		it('should request correct Http with default parameters', async () => {
 			const clientMock = httpClientMock(request => {

@@ -3,7 +3,7 @@ import type { PlayerExperienceResponse } from '@/types/player-experience-respons
 
 export interface GetPlayerExperienceParams {
 	name: string
-	skillId: number
+	skillId?: number
 }
 
 export interface IPlayerExperienceService {
