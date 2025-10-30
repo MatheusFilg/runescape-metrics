@@ -37,7 +37,7 @@ export const PlayerActivityView = (props: PlayerActivityViewProps) => {
 						</span>
 					</div>
 
-					<div className=" flex flex-col p-2 gap-2 h-[85dvh]">
+					<div className="flex flex-col p-2 gap-2 h-[85dvh]">
 						<div className="flex flex-row p-2 w-60 gap-2 items-center">
 							{isLoading ? (
 								<Skeleton className="h-5 my-1 w-full rounded" />

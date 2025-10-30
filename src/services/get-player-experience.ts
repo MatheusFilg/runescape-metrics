@@ -1,7 +1,7 @@
 import { HttpMethod, type IHttpClient } from '@/infra/http-client-player'
 import type { PlayerExperienceResponse } from '@/types/player-experience-response'
 
-export interface GetPlayerExperienceParams {
+interface GetPlayerExperienceParams {
 	name: string
 	skillId?: number
 }
