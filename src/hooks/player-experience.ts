@@ -11,5 +11,6 @@ export const usePlayerExperience = (
 		queryKey: ['player-experience', playerName, skillId],
 		queryFn: () =>
 			playerService.getPlayerExperience({ name: playerName, skillId }),
+		enabled: !!playerName.trim(),
 	})
 }
