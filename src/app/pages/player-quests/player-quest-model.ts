@@ -1,9 +1,9 @@
 import { useQueryState } from 'nuqs'
 import { useMemo, useState } from 'react'
 import { usePlayerQuests } from '@/hooks/player-quests'
-import type { PlayerQuestsService } from '@/services/get-player-quests'
+import type { PlayerQuests } from '@/services/get-player-quests'
 
-export function usePlayerQuestModel(playerService: PlayerQuestsService) {
+export function usePlayerQuestModel(playerService: PlayerQuests) {
 	const [searchTerm] = useQueryState('name')
 	const [inputValue, setInputValue] = useState('')
 
@@ -22,6 +22,7 @@ export function usePlayerQuestModel(playerService: PlayerQuestsService) {
 	}, [data?.quests, inputValue])
 
 	return {
+		data,
 		isLoading,
 		filteredQuests,
 		setInputValue,

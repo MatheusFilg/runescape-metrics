@@ -9,5 +9,6 @@ export const usePlayerQuests = (
 	return useQuery<PlayerQuestResponse>({
 		queryKey: ['player-quests', playerName],
 		queryFn: () => playerService.getPlayerQuests({ user: playerName }),
+		enabled: !!playerName.trim(),
 	})
 }
