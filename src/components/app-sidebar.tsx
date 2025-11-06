@@ -16,6 +16,7 @@ import {
 	SidebarMenuButton,
 	SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import Github from '@/public/github'
 
 const routes = [
 	{
@@ -63,7 +64,10 @@ export function AppSidebar() {
 				>
 					{routes.map(item => (
 						<SidebarMenuItem key={item.title}>
-							<SidebarMenuButton asChild>
+							<SidebarMenuButton
+								className="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50"
+								asChild
+							>
 								<Link
 									to={{
 										pathname: item.url,
@@ -81,7 +85,17 @@ export function AppSidebar() {
 					))}
 				</SidebarGroupContent>
 			</SidebarContent>
-			<SidebarFooter />
+			<SidebarFooter className="flex flex-row items-center gap-2">
+				<span>Matheus Filgueiras</span>
+				<a
+					href="https://github.com/MatheusFilg"
+					target="_blank"
+					rel="noopener"
+					className="hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 p-1 rounded-full"
+				>
+					<Github />
+				</a>
+			</SidebarFooter>
 		</Sidebar>
 	)
 }

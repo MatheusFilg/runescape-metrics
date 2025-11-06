@@ -38,13 +38,13 @@ export function ChartPieDonut({
 			id: 'questCompleted',
 			name: 'Quests Completed',
 			value: questCompleted,
-			fill: 'var(--sidebar-ring)',
+			fill: 'var(--chart-2)',
 		},
 		{
 			id: 'questStarted',
 			name: 'Quests Started',
 			value: questStarted,
-			fill: 'var(--chart-4)',
+			fill: 'var(--chart-1)',
 		},
 		{
 			id: 'questNotStarted',

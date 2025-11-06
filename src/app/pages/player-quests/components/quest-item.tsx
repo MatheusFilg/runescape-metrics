@@ -58,7 +58,7 @@ export const QuestItem = ({ quest }: QuestItemProps) => {
 						onError={handleImageError}
 					/>
 					<div className="flex flex-col gap-1">
-						<a href={quest.urlQuestQuickGuide}>
+						<a href={quest.urlQuestQuickGuide} target="_blank" rel="noopener">
 							<span className="text-xl underline">{quest.title}</span>
 						</a>
 
@@ -74,7 +74,7 @@ export const QuestItem = ({ quest }: QuestItemProps) => {
 							/>
 							<span
 								className={`text-sm self-center p-0.5 rounded-sm
-											${quest.status === 'COMPLETED' ? 'bg-chart-2' : quest.status === 'STARTED' ? 'bg-chart-4' : 'bg-chart-5'}`}
+											${quest.status === 'COMPLETED' ? 'bg-chart-2' : quest.status === 'STARTED' ? 'bg-chart-1' : 'bg-destructive'}`}
 							>
 								{quest.status}
 							</span>

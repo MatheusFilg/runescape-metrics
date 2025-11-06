@@ -32,7 +32,7 @@ export function PlayerQuestsView(props: PlayerQuestViewProps) {
 					{isLoading && filteredQuests.length === 0 ? (
 						<Skeleton className="h-[81dvh] w-full rounded" />
 					) : (
-						<div className="flex flex-col gap-2 h-[83dvh] overflow-scroll">
+						<div className="flex flex-col gap-2 h-[80dvh] overflow-scroll">
 							{filteredQuests.map(quest => (
 								<QuestItem quest={quest} key={quest.title} />
 							))}
