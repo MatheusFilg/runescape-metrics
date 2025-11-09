@@ -21,7 +21,7 @@ enum questDifficulty {
 	Special,
 }
 
-export const QuestItem = ({ quest }: QuestItemProps) => {
+export function QuestItem({ quest }: QuestItemProps) {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const difficultyName = questDifficulty[quest.difficulty]

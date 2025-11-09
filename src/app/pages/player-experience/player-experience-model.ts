@@ -4,9 +4,9 @@ import { useMemo, useState } from 'react'
 import { usePlayerExperience } from '@/hooks/player-experience'
 import type { IPlayerExperienceService } from '@/services/get-player-experience'
 
-export const usePlayerExperienceModel = (
+export function usePlayerExperienceModel(
 	experienceService: IPlayerExperienceService
-) => {
+) {
 	const [selectedSkillId, setSelectedSkillId] = useState<number>(-1)
 
 	const [playerName] = useQueryState('name')

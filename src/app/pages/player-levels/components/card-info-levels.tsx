@@ -3,7 +3,7 @@ interface CardInfoLevelsProps {
 	info: string
 }
 
-export const CardInfoLevels = ({ text, info }: CardInfoLevelsProps) => {
+export function CardInfoLevels({ text, info }: CardInfoLevelsProps) {
 	return (
 		<div className="bg-sidebar-accent place-items-center justify-center flex flex-col gap-2 px-4 py-2 rounded w-full h-24">
 			<span className="text-sm capitalize">{text}</span>

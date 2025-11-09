@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react'
 import { NuqsAdapter } from 'nuqs/adapters/react'
 import type { ReactNode } from 'react'
 
-export const renderQueryClient = <T,>(hook: () => T) => {
+export function renderQueryClient<T>(hook: () => T) {
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {

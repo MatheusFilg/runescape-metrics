@@ -3,7 +3,7 @@ import { usePlayerSearch } from '@/hooks/player-search'
 import type { IPlayerService } from '@/services/get-player-summary'
 import { skillReferences } from '@/utils/skills'
 
-export const usePlayerSummaryModel = (playerService: IPlayerService) => {
+export function usePlayerSummaryModel(playerService: IPlayerService) {
 	const [searchTerm] = useQueryState('name')
 	const { data: playerSummary, isLoading } = usePlayerSearch(
 		searchTerm || '',

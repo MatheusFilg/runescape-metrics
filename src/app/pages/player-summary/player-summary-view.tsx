@@ -6,7 +6,7 @@ import type { usePlayerSummaryModel } from './player-summary-model'
 
 type PlayerSummaryViewProps = ReturnType<typeof usePlayerSummaryModel>
 
-export const PlayerSummaryView = (props: PlayerSummaryViewProps) => {
+export function PlayerSummaryView(props: PlayerSummaryViewProps) {
 	const { isLoading, playerSummary, searchTerm, skillValues } = props
 
 	return (

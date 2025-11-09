@@ -3,7 +3,7 @@ import { PlayerExperienceService } from '@/services/get-player-experience'
 import { usePlayerExperienceModel } from './player-experience-model'
 import { PlayerExperienceView } from './player-experience-view'
 
-export const PlayerExperience = () => {
+export function PlayerExperience() {
 	const httpClient = HttpClient.create()
 	const playerExperienceService = new PlayerExperienceService(httpClient)
 

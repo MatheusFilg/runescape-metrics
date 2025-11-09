@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import { usePlayerSearch } from '@/hooks/player-search'
 import type { IPlayerService } from '@/services/get-player-summary'
 
-export const usePlayerActivityModel = (playerService: IPlayerService) => {
+export function usePlayerActivityModel(playerService: IPlayerService) {
 	const [searchTerm] = useQueryState('name')
 	const { data, isLoading } = usePlayerSearch(searchTerm || '', playerService)
 	const playerActivitiesDetails = data?.activities

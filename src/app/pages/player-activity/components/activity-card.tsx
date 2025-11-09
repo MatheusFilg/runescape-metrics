@@ -1,12 +1,7 @@
 import type { Activity } from '@/types/player-summary-response'
 import { formatDateFromNow } from '@/utils/format-date-to-now'
 
-export const ActivityCard = ({
-	activityUrl,
-	text,
-	details,
-	date,
-}: Activity) => {
+export function ActivityCard({ activityUrl, text, details, date }: Activity) {
 	return (
 		<div className=" w-full border bg-sidebar-accent rounded flex flex-col gap-2">
 			<div className="flex flex-row p-4 gap-2 items-center border-b">

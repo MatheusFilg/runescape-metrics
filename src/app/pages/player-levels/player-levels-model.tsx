@@ -18,7 +18,7 @@ interface SkillData extends SkillValue {
 	image: string | undefined
 }
 
-export const usePlayerLevelsModel = (playerLevelService: IPlayerService) => {
+export function usePlayerLevelsModel(playerLevelService: IPlayerService) {
 	const [searchTerm] = useQueryState('name')
 	const { data, isLoading } = usePlayerSearch(
 		searchTerm || '',

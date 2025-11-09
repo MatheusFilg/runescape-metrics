@@ -12,7 +12,7 @@ import type { usePlayerActivityModel } from './player-activity-model'
 
 type PlayerActivityViewProps = ReturnType<typeof usePlayerActivityModel>
 
-export const PlayerActivityView = (props: PlayerActivityViewProps) => {
+export function PlayerActivityView(props: PlayerActivityViewProps) {
 	const {
 		isLoading,
 		activityTypes,
