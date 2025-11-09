@@ -1,6 +1,6 @@
 import { waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { PlayerService } from '@/services/get-player-details'
+import { PlayerService } from '@/services/get-player-summary'
 import { httpClientMock } from '@/test/mocks/http-client-mock'
 import { mockData } from '@/test/mocks/mock-schema-player-summary'
 import { renderQueryClient } from '@/test/render-query-client'

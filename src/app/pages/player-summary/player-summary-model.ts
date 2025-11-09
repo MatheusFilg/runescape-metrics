@@ -1,16 +1,16 @@
 import { useQueryState } from 'nuqs'
 import { usePlayerSearch } from '@/hooks/player-search'
-import type { IPlayerService } from '@/services/get-player-details'
+import type { IPlayerService } from '@/services/get-player-summary'
 import { skillReferences } from '@/utils/skills'
 
 export const usePlayerSummaryModel = (playerService: IPlayerService) => {
 	const [searchTerm] = useQueryState('name')
-	const { data: playerDetails, isLoading } = usePlayerSearch(
+	const { data: playerSummary, isLoading } = usePlayerSearch(
 		searchTerm || '',
 		playerService
 	)
 
-	const skillValues = playerDetails?.skillvalues
+	const skillValues = playerSummary?.skillvalues
 		.map((item: any) => {
 			const skillValuesComplete = skillReferences.find(
 				(ref: any) => ref.id === item.id
@@ -28,6 +28,6 @@ export const usePlayerSummaryModel = (playerService: IPlayerService) => {
 		isLoading,
 		searchTerm,
 		skillValues,
-		playerDetails,
+		playerSummary,
 	}
 }

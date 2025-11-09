@@ -1,5 +1,5 @@
 import { HttpClient } from '@/infra/http-client'
-import { PlayerService } from '@/services/get-player-details'
+import { PlayerService } from '@/services/get-player-summary'
 import { usePlayerActivityModel } from './player-activity-model'
 import { PlayerActivityView } from './player-activity-view'
 

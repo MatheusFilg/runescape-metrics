@@ -23,7 +23,7 @@ describe('Player Summary Model', () => {
 			expect(result.current.isLoading).toBe(false)
 		})
 
-		expect(result.current.playerDetails).toEqual(mockData)
+		expect(result.current.playerSummary).toEqual(mockData)
 	})
 
 	it('should set loading to true while fetching', async () => {
@@ -55,7 +55,7 @@ describe('Player Summary Model', () => {
 			expect(result.current.isLoading).toBe(false)
 		})
 
-		expect(result.current.playerDetails).toBeUndefined()
+		expect(result.current.playerSummary).toBeUndefined()
 	})
 
 	it('should transform skillValues correctly', async () => {

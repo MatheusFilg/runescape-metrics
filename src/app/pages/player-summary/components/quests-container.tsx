@@ -5,7 +5,7 @@ import type { ContainerProps } from './player-summary-container'
 
 export function QuestsContainer({
 	isLoading,
-	playerDetails,
+	playerSummary,
 	searchTerm,
 }: ContainerProps) {
 	return (
@@ -13,12 +13,12 @@ export function QuestsContainer({
 			<h1 className="uppercase text-2xl border-b p-2">Quests</h1>
 
 			<div className="p-2 h-full">
-				{playerDetails !== undefined && !isLoading ? (
+				{playerSummary !== undefined && !isLoading ? (
 					<div className="flex flex-col p-2 gap-2 overflow-scroll">
 						<ChartPieDonut
-							questCompleted={playerDetails?.questscomplete}
-							questNotStarted={playerDetails?.questsnotstarted}
-							questStarted={playerDetails?.questsstarted}
+							questCompleted={playerSummary?.questscomplete}
+							questNotStarted={playerSummary?.questsnotstarted}
+							questStarted={playerSummary?.questsstarted}
 						/>
 					</div>
 				) : (

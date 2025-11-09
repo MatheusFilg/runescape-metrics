@@ -4,7 +4,7 @@ import type { ContainerProps } from './player-summary-container'
 
 export function SkillsContainer({
 	isLoading,
-	playerDetails,
+	playerSummary,
 	skillValues,
 	searchTerm,
 }: ContainerProps) {
@@ -18,17 +18,17 @@ export function SkillsContainer({
 				) : (
 					<div className="flex flex-row w-full justify-between items-center align-middle">
 						<h2>Combat Level</h2>
-						<span className="italic">{playerDetails?.combatlevel}</span>
+						<span className="italic">{playerSummary?.combatlevel}</span>
 					</div>
 				)}
 			</div>
 
 			<div className="flex flex-row w-full border-b px-2 py-1">
-				{playerDetails !== undefined && !isLoading ? (
+				{playerSummary !== undefined && !isLoading ? (
 					<div className="flex flex-row w-full justify-between items-center align-middle">
 						<h2>Total Level</h2>
 						<span className="italic">
-							{new Intl.NumberFormat('pt-BR').format(playerDetails?.totalskill)}
+							{new Intl.NumberFormat('pt-BR').format(playerSummary?.totalskill)}
 						</span>
 					</div>
 				) : (
@@ -36,11 +36,11 @@ export function SkillsContainer({
 				)}
 			</div>
 			<div className="flex flex-row w-full border-b px-2 py-1">
-				{playerDetails !== undefined && !isLoading ? (
+				{playerSummary !== undefined && !isLoading ? (
 					<div className="flex flex-row w-full justify-between items-center align-middle">
 						<h2>Total Xp</h2>
 						<span className="italic">
-							{new Intl.NumberFormat('pt-BR').format(playerDetails?.totalxp)}
+							{new Intl.NumberFormat('pt-BR').format(playerSummary?.totalxp)}
 						</span>
 					</div>
 				) : (

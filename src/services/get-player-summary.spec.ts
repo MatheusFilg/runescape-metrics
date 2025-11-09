@@ -5,7 +5,7 @@ import {
 	httpClientMockWithFailure,
 } from '@/test/mocks/http-client-mock'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
-import { PlayerService } from './get-player-details'
+import { PlayerService } from './get-player-summary'
 
 const mockPlayerData = (name: string): PlayerSummaryResponse => ({
 	name: `${name}`,

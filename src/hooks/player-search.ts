@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import type { IPlayerService } from '@/services/get-player-details'
+import type { IPlayerService } from '@/services/get-player-summary'
 import type { PlayerSummaryResponse } from '@/types/player-summary-response'
 
 export const usePlayerSearch = (

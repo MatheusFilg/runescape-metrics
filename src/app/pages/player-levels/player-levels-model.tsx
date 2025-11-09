@@ -9,7 +9,7 @@ import { useQueryState } from 'nuqs'
 import { useMemo, useState } from 'react'
 import { Progress } from '@/components/ui/progress'
 import { usePlayerSearch } from '@/hooks/player-search'
-import type { IPlayerService } from '@/services/get-player-details'
+import type { IPlayerService } from '@/services/get-player-summary'
 import type { SkillValue } from '@/types/player-summary-response'
 import { skillReferences } from '@/utils/skills'
 

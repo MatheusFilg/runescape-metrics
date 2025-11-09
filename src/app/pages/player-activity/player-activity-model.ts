@@ -1,7 +1,7 @@
 import { useQueryState } from 'nuqs'
 import { useMemo, useState } from 'react'
 import { usePlayerSearch } from '@/hooks/player-search'
-import type { IPlayerService } from '@/services/get-player-details'
+import type { IPlayerService } from '@/services/get-player-summary'
 
 export const usePlayerActivityModel = (playerService: IPlayerService) => {
 	const [searchTerm] = useQueryState('name')

@@ -5,7 +5,7 @@ import type { ContainerProps } from './player-summary-container'
 
 export function ActivitiesContainer({
 	isLoading,
-	playerDetails,
+	playerSummary,
 	searchTerm,
 }: ContainerProps) {
 	return (
@@ -17,7 +17,7 @@ export function ActivitiesContainer({
 					<Skeleton className="h-full w-full rounded" />
 				) : (
 					<div className="flex flex-col gap-2 h-[82dvh] overflow-scroll">
-						{playerDetails?.activities.map((item: any) => (
+						{playerSummary?.activities.map((item: any) => (
 							<div
 								className="gap-2 flex flex-row p-2 items-center bg-sidebar-accent rounded"
 								key={item.id}
