@@ -21,7 +21,7 @@ export class PlayerService implements IPlayerService {
 		const responsePlayerSummary =
 			await this.httpClient.sendRequest<PlayerSummaryResponse>({
 				method: HttpMethod.GET,
-				endpoint: '/player-details',
+				endpoint: '/player-summary',
 				params: { name, activities },
 			})
 		return responsePlayerSummary

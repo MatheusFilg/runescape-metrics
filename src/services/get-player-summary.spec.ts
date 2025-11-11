@@ -56,7 +56,7 @@ describe('Player Summary Service', () => {
 
 			expect(clientMock.sendRequest).toHaveBeenCalledWith({
 				method: HttpMethod.GET,
-				endpoint: '/player-details',
+				endpoint: '/player-summary',
 				params: { name: 'Ageonn', activities: 20 },
 			})
 
