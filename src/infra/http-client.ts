@@ -5,7 +5,7 @@ import type { HttpRequest, IHttpClient } from './http-client-player'
 export class HttpClient implements IHttpClient {
 	private constructor(
 		private api: AxiosInstance = axios,
-		private baseUrl: string = 'http://localhost:3333'
+		private baseUrl: string = 'https://runemetrics-service.onrender.com'
 	) {}
 
 	static create() {
